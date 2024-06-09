@@ -1,27 +1,22 @@
 import React from "react";
 import JobList from "./JobList";
-
-/*
-
-    - view job offers
-    - search job offers (perform search by job title)
-    - filter job offers (filter by company, technology, job type)
-    - login
-    - register
-*/
-
+import Menu from "./Menu";
+import { Container } from "@mui/material";
 
 /**
- * AdminDashboard component.
- * 
+ * PublicDashboard component.
+ *
  * @returns {JSX.Element}
- * 
+ *
  */
 const PublicDashboard  = () => {
     return (
         <div>
-            <h1>Public Dashboard</h1>
-            <JobList />
+            <Menu />
+            <br />
+            <Container sx={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <JobList />
+            </Container>
         </div>
     );
 };

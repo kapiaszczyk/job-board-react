@@ -1,27 +1,33 @@
+import { Container } from "@mui/material";
 import React from "react";
-
-/*
-
-    - add job offer
-    - delete job offer
-    - add company
-    - delete company
-    - add technology
-    - logout
-
-*/
-
+import { useNavigate } from "react-router-dom";
+import Menu from "./Menu";
+import { Outlet } from "react-router-dom";
+import { isTokenExpired } from "../utils/auth";
 
 /**
  * AdminDashboard component.
- * 
+ *
  * @returns {JSX.Element}
- * 
+ *
  */
 const AdminDashboard = () => {
+
+    const navigate = useNavigate();
+
+    console.log("Rendering AdminDashboard");
+
+    if (isTokenExpired()) {
+        navigate('/login');
+    }
+
     return (
         <div>
-            <h1>Admin Dashboard</h1>
+            <Menu />
+            <Container maxWidth="md">
+                <h1>Admin Dashboard</h1>
+                <Outlet />
+            </Container>
         </div>
     );
 };
